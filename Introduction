@@ -1,0 +1,27 @@
+🎯 Student Goal Tracker
+
+This is a simple and interactive Goal Tracking Web App built using HTML, CSS, JavaScript, and Firebase (Firestore + Authentication).
+It allows users (students) to register, log in, add goals, mark them as completed, and track progress through a star-based reward system ⭐.
+
+✅ Features
+
+🔐 User Authentication (Register & Login)
+
+📝 Add daily/weekly/monthly goals
+
+☑ Mark goals as completed with checkboxes
+
+⭐ Live star count updates based on completed goals
+
+❌ Delete goals individually
+
+🔄 Persistent goal storage using Firebase Firestore
+
+🎨 Clean, user-friendly dashboard layout
+
+
+🚀 Tech Stack
+
+Frontend: HTML, CSS, JavaScript
+
+Backend/Database: Firebase Authentication, Firestore Database
