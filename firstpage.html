@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    .left, .right {
+      flex: 1;
+      padding: 40px;
+      overflow-y: auto;
+    }
+
+    .left {
+      background-color: #f0f8ff;
+    }
+
+    .right {
+      background-color: #fff8dc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .star {
+      font-size: 100px;
+      color: gold;
+    }
+
+    #goalCount {
+      font-size: 30px;
+      margin-top: 20px;
+    }
+
+    .goal-item {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .goal-item label {
+      flex: 1;
+    }
+
+    .goal-item input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .delete-btn {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <!-- Left Side: Add Goals -->
+  <div class="left">
+    <h2>Add Your Goal 🎯</h2>
+    <input type="text" id="goalInput" placeholder="Type your goal...">
+    <button onclick="addGoal()">Add Goal</button>
+    
+    <div id="goalList" style="margin-top: 30px;">
+      <h3>Your Goals:</h3>
+      <!-- Goals will appear here -->
+    </div>
+  </div>
+
+  <!-- Right Side: Big Star with Count -->
+  <div class="right">
+    <div class="star">⭐</div>
+    <div id="goalCount">Goals Completed: 0</div>
+  </div>
+
+  <script>
+    let completedCount = 0;
+
+    function addGoal() {
+      const input = document.getElementById("goalInput");
+      const goalText = input.value.trim();
+
+      if (goalText === "") {
+        alert("Please enter a goal!");
+        return;
+      }
+
+      const goalList = document.getElementById("goalList");
+
+      // Create goal container
+      const goalDiv = document.createElement("div");
+      goalDiv.className = "goal-item";
+
+      // Checkbox
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.addEventListener("change", function () {
+        if (this.checked) {
+          completedCount++;
+        } else {
+          completedCount--;
+        }
+        updateGoalCount();
+      });
+
+      // Label
+      const label = document.createElement("label");
+      label.textContent = goalText;
+
+      // Delete button
+      const deleteBtn = document.createElement("button");
+      deleteBtn.className = "delete-btn";
+      deleteBtn.textContent = "Delete";
+      deleteBtn.onclick = function () {
+        if (checkbox.checked) {
+          completedCount--;
+          updateGoalCount();
+        }
+        goalList.removeChild(goalDiv);
+      };
+
+      // Append all to goalDiv
+      goalDiv.appendChild(checkbox);
+      goalDiv.appendChild(label);
+      goalDiv.appendChild(deleteBtn);
+
+      goalList.appendChild(goalDiv);
+
+      // Clear input
+      input.value = "";
+    }
+
+    function updateGoalCount() {
+      document.getElementById("goalCount").innerText = "Goals Completed: " + completedCount;
+    }
+  </script>
+</body>
+</html>
