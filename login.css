@@ -1,0 +1,44 @@
+div{
+    background-color: rgba(0,0,0,0.5);
+    width: 20%;
+    height: 30%;
+
+    margin-top: 8%;
+    margin-left: 40%;
+    color: rgb(237, 239, 241);
+    
+    
+}
+input{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    
+}
+h3,input{
+    display: inline-block;
+}
+h3{
+    padding-left: 20px;
+}
+body{
+    text-align: center;
+    background-image: url("success.jpeg");
+    background-size: cover;
+}
+input{
+    background-color: antiquewhite;
+}
+#heading{
+    color: rgb(253, 237, 8);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+button{
+    width: 55%;
+    height: 17%;
+    margin-top: 10px;
+    border-radius: 15px;
+    background-color: blueviolet;
+}
+h1{
+    padding-top: 20px;
+}
