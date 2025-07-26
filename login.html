@@ -1,0 +1,31 @@
+<html>
+    <link rel="stylesheet" href="login.css">
+    <head><title>Login</title></head>
+    <body>
+        <h1 id="heading">Login Here !!!!!</h1>
+        <div>
+            <h3 >Usermail</h3>
+            <input type="email" required id="loginemail">
+            <h3>Password</h3>
+            <input type="password" required id="loginpassword">
+            <button type="submit"onclick="login()">Submit</button>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+        <script src="firebase.js"></script>
+        <script>
+            function login(){
+                const email=document.getElementById("loginemail").value;
+                const password=document.getElementById("loginpassword").value;
+                auth.signInWithEmailAndPassword(email,password)
+                .then((userCredential)=>{
+                    alert("✅ Login successfully!")
+                    window.location.href="firstpage.html";
+                })
+                .catch((error)=>{
+                    alert("❌"+error.message)
+                });
+            }
+        </script>
+    </body>
+</html>
